@@ -12,6 +12,15 @@
         Do({{this.I}}) {{#if this.O}}({{this.O}}){{/if}}
     }
 
+    {{#if this.w }}
+        // GF{{i}}{{j}} generalize a function with argument type any to generic
+    func GF{{i}}{{j}}[{{this.G}}] (f func({{this.wI}}) ({{O}})) F{{i}}{{j}}[{{this.GT}}] {
+    return func({{I}}) ({{O}}) {
+    {{#if this.O}}return {{/if}} f({{this.IV}})
+    }
+    }
+    {{/if}}
+
     {{#if this.TUPLE}}
         // T{{i}} tuple with {{i}} fields
         type T{{i}}[{{this.G}}] struct { {{this.TUPLE}} }

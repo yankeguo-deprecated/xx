@@ -77,6 +77,13 @@ type D10[I1 any] interface {
 	Do(i1 I1)
 }
 
+// GF10 generalize a function with argument type any to generic
+func GF10[I1 any](f func(i1 any)) F10[I1] {
+	return func(i1 I1) {
+		f(i1)
+	}
+}
+
 // F11 function with 1 argument(s) and 1 return(s)
 type F11[I1 any, O1 any] func(i1 I1) (o1 O1)
 
@@ -87,6 +94,13 @@ func (f F11[I1, O1]) Do(i1 I1) (o1 O1) {
 // D11 interface with a single method with 1 argument(s) and 1 return(s)
 type D11[I1 any, O1 any] interface {
 	Do(i1 I1) (o1 O1)
+}
+
+// GF11 generalize a function with argument type any to generic
+func GF11[I1 any, O1 any](f func(i1 any) (o1 O1)) F11[I1, O1] {
+	return func(i1 I1) (o1 O1) {
+		return f(i1)
+	}
 }
 
 // F12 function with 1 argument(s) and 2 return(s)
@@ -101,6 +115,13 @@ type D12[I1 any, O1 any, O2 any] interface {
 	Do(i1 I1) (o1 O1, o2 O2)
 }
 
+// GF12 generalize a function with argument type any to generic
+func GF12[I1 any, O1 any, O2 any](f func(i1 any) (o1 O1, o2 O2)) F12[I1, O1, O2] {
+	return func(i1 I1) (o1 O1, o2 O2) {
+		return f(i1)
+	}
+}
+
 // F13 function with 1 argument(s) and 3 return(s)
 type F13[I1 any, O1 any, O2 any, O3 any] func(i1 I1) (o1 O1, o2 O2, o3 O3)
 
@@ -111,6 +132,13 @@ func (f F13[I1, O1, O2, O3]) Do(i1 I1) (o1 O1, o2 O2, o3 O3) {
 // D13 interface with a single method with 1 argument(s) and 3 return(s)
 type D13[I1 any, O1 any, O2 any, O3 any] interface {
 	Do(i1 I1) (o1 O1, o2 O2, o3 O3)
+}
+
+// GF13 generalize a function with argument type any to generic
+func GF13[I1 any, O1 any, O2 any, O3 any](f func(i1 any) (o1 O1, o2 O2, o3 O3)) F13[I1, O1, O2, O3] {
+	return func(i1 I1) (o1 O1, o2 O2, o3 O3) {
+		return f(i1)
+	}
 }
 
 // F14 function with 1 argument(s) and 4 return(s)
@@ -125,6 +153,13 @@ type D14[I1 any, O1 any, O2 any, O3 any, O4 any] interface {
 	Do(i1 I1) (o1 O1, o2 O2, o3 O3, o4 O4)
 }
 
+// GF14 generalize a function with argument type any to generic
+func GF14[I1 any, O1 any, O2 any, O3 any, O4 any](f func(i1 any) (o1 O1, o2 O2, o3 O3, o4 O4)) F14[I1, O1, O2, O3, O4] {
+	return func(i1 I1) (o1 O1, o2 O2, o3 O3, o4 O4) {
+		return f(i1)
+	}
+}
+
 // F20 function with 2 argument(s) and 0 return(s)
 type F20[I1 any, I2 any] func(i1 I1, i2 I2)
 
@@ -135,6 +170,13 @@ func (f F20[I1, I2]) Do(i1 I1, i2 I2) {
 // D20 interface with a single method with 2 argument(s) and 0 return(s)
 type D20[I1 any, I2 any] interface {
 	Do(i1 I1, i2 I2)
+}
+
+// GF20 generalize a function with argument type any to generic
+func GF20[I1 any, I2 any](f func(i1 any, i2 any)) F20[I1, I2] {
+	return func(i1 I1, i2 I2) {
+		f(i1, i2)
+	}
 }
 
 // T2 tuple with 2 fields
@@ -155,6 +197,13 @@ type D21[I1 any, I2 any, O1 any] interface {
 	Do(i1 I1, i2 I2) (o1 O1)
 }
 
+// GF21 generalize a function with argument type any to generic
+func GF21[I1 any, I2 any, O1 any](f func(i1 any, i2 any) (o1 O1)) F21[I1, I2, O1] {
+	return func(i1 I1, i2 I2) (o1 O1) {
+		return f(i1, i2)
+	}
+}
+
 // F22 function with 2 argument(s) and 2 return(s)
 type F22[I1 any, I2 any, O1 any, O2 any] func(i1 I1, i2 I2) (o1 O1, o2 O2)
 
@@ -165,6 +214,13 @@ func (f F22[I1, I2, O1, O2]) Do(i1 I1, i2 I2) (o1 O1, o2 O2) {
 // D22 interface with a single method with 2 argument(s) and 2 return(s)
 type D22[I1 any, I2 any, O1 any, O2 any] interface {
 	Do(i1 I1, i2 I2) (o1 O1, o2 O2)
+}
+
+// GF22 generalize a function with argument type any to generic
+func GF22[I1 any, I2 any, O1 any, O2 any](f func(i1 any, i2 any) (o1 O1, o2 O2)) F22[I1, I2, O1, O2] {
+	return func(i1 I1, i2 I2) (o1 O1, o2 O2) {
+		return f(i1, i2)
+	}
 }
 
 // F23 function with 2 argument(s) and 3 return(s)
@@ -179,6 +235,13 @@ type D23[I1 any, I2 any, O1 any, O2 any, O3 any] interface {
 	Do(i1 I1, i2 I2) (o1 O1, o2 O2, o3 O3)
 }
 
+// GF23 generalize a function with argument type any to generic
+func GF23[I1 any, I2 any, O1 any, O2 any, O3 any](f func(i1 any, i2 any) (o1 O1, o2 O2, o3 O3)) F23[I1, I2, O1, O2, O3] {
+	return func(i1 I1, i2 I2) (o1 O1, o2 O2, o3 O3) {
+		return f(i1, i2)
+	}
+}
+
 // F24 function with 2 argument(s) and 4 return(s)
 type F24[I1 any, I2 any, O1 any, O2 any, O3 any, O4 any] func(i1 I1, i2 I2) (o1 O1, o2 O2, o3 O3, o4 O4)
 
@@ -191,6 +254,13 @@ type D24[I1 any, I2 any, O1 any, O2 any, O3 any, O4 any] interface {
 	Do(i1 I1, i2 I2) (o1 O1, o2 O2, o3 O3, o4 O4)
 }
 
+// GF24 generalize a function with argument type any to generic
+func GF24[I1 any, I2 any, O1 any, O2 any, O3 any, O4 any](f func(i1 any, i2 any) (o1 O1, o2 O2, o3 O3, o4 O4)) F24[I1, I2, O1, O2, O3, O4] {
+	return func(i1 I1, i2 I2) (o1 O1, o2 O2, o3 O3, o4 O4) {
+		return f(i1, i2)
+	}
+}
+
 // F30 function with 3 argument(s) and 0 return(s)
 type F30[I1 any, I2 any, I3 any] func(i1 I1, i2 I2, i3 I3)
 
@@ -201,6 +271,13 @@ func (f F30[I1, I2, I3]) Do(i1 I1, i2 I2, i3 I3) {
 // D30 interface with a single method with 3 argument(s) and 0 return(s)
 type D30[I1 any, I2 any, I3 any] interface {
 	Do(i1 I1, i2 I2, i3 I3)
+}
+
+// GF30 generalize a function with argument type any to generic
+func GF30[I1 any, I2 any, I3 any](f func(i1 any, i2 any, i3 any)) F30[I1, I2, I3] {
+	return func(i1 I1, i2 I2, i3 I3) {
+		f(i1, i2, i3)
+	}
 }
 
 // T3 tuple with 3 fields
@@ -222,6 +299,13 @@ type D31[I1 any, I2 any, I3 any, O1 any] interface {
 	Do(i1 I1, i2 I2, i3 I3) (o1 O1)
 }
 
+// GF31 generalize a function with argument type any to generic
+func GF31[I1 any, I2 any, I3 any, O1 any](f func(i1 any, i2 any, i3 any) (o1 O1)) F31[I1, I2, I3, O1] {
+	return func(i1 I1, i2 I2, i3 I3) (o1 O1) {
+		return f(i1, i2, i3)
+	}
+}
+
 // F32 function with 3 argument(s) and 2 return(s)
 type F32[I1 any, I2 any, I3 any, O1 any, O2 any] func(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2)
 
@@ -232,6 +316,13 @@ func (f F32[I1, I2, I3, O1, O2]) Do(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2) {
 // D32 interface with a single method with 3 argument(s) and 2 return(s)
 type D32[I1 any, I2 any, I3 any, O1 any, O2 any] interface {
 	Do(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2)
+}
+
+// GF32 generalize a function with argument type any to generic
+func GF32[I1 any, I2 any, I3 any, O1 any, O2 any](f func(i1 any, i2 any, i3 any) (o1 O1, o2 O2)) F32[I1, I2, I3, O1, O2] {
+	return func(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2) {
+		return f(i1, i2, i3)
+	}
 }
 
 // F33 function with 3 argument(s) and 3 return(s)
@@ -246,6 +337,13 @@ type D33[I1 any, I2 any, I3 any, O1 any, O2 any, O3 any] interface {
 	Do(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2, o3 O3)
 }
 
+// GF33 generalize a function with argument type any to generic
+func GF33[I1 any, I2 any, I3 any, O1 any, O2 any, O3 any](f func(i1 any, i2 any, i3 any) (o1 O1, o2 O2, o3 O3)) F33[I1, I2, I3, O1, O2, O3] {
+	return func(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2, o3 O3) {
+		return f(i1, i2, i3)
+	}
+}
+
 // F34 function with 3 argument(s) and 4 return(s)
 type F34[I1 any, I2 any, I3 any, O1 any, O2 any, O3 any, O4 any] func(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2, o3 O3, o4 O4)
 
@@ -258,6 +356,13 @@ type D34[I1 any, I2 any, I3 any, O1 any, O2 any, O3 any, O4 any] interface {
 	Do(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2, o3 O3, o4 O4)
 }
 
+// GF34 generalize a function with argument type any to generic
+func GF34[I1 any, I2 any, I3 any, O1 any, O2 any, O3 any, O4 any](f func(i1 any, i2 any, i3 any) (o1 O1, o2 O2, o3 O3, o4 O4)) F34[I1, I2, I3, O1, O2, O3, O4] {
+	return func(i1 I1, i2 I2, i3 I3) (o1 O1, o2 O2, o3 O3, o4 O4) {
+		return f(i1, i2, i3)
+	}
+}
+
 // F40 function with 4 argument(s) and 0 return(s)
 type F40[I1 any, I2 any, I3 any, I4 any] func(i1 I1, i2 I2, i3 I3, i4 I4)
 
@@ -268,6 +373,13 @@ func (f F40[I1, I2, I3, I4]) Do(i1 I1, i2 I2, i3 I3, i4 I4) {
 // D40 interface with a single method with 4 argument(s) and 0 return(s)
 type D40[I1 any, I2 any, I3 any, I4 any] interface {
 	Do(i1 I1, i2 I2, i3 I3, i4 I4)
+}
+
+// GF40 generalize a function with argument type any to generic
+func GF40[I1 any, I2 any, I3 any, I4 any](f func(i1 any, i2 any, i3 any, i4 any)) F40[I1, I2, I3, I4] {
+	return func(i1 I1, i2 I2, i3 I3, i4 I4) {
+		f(i1, i2, i3, i4)
+	}
 }
 
 // T4 tuple with 4 fields
@@ -290,6 +402,13 @@ type D41[I1 any, I2 any, I3 any, I4 any, O1 any] interface {
 	Do(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1)
 }
 
+// GF41 generalize a function with argument type any to generic
+func GF41[I1 any, I2 any, I3 any, I4 any, O1 any](f func(i1 any, i2 any, i3 any, i4 any) (o1 O1)) F41[I1, I2, I3, I4, O1] {
+	return func(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1) {
+		return f(i1, i2, i3, i4)
+	}
+}
+
 // F42 function with 4 argument(s) and 2 return(s)
 type F42[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any] func(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2)
 
@@ -300,6 +419,13 @@ func (f F42[I1, I2, I3, I4, O1, O2]) Do(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O
 // D42 interface with a single method with 4 argument(s) and 2 return(s)
 type D42[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any] interface {
 	Do(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2)
+}
+
+// GF42 generalize a function with argument type any to generic
+func GF42[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any](f func(i1 any, i2 any, i3 any, i4 any) (o1 O1, o2 O2)) F42[I1, I2, I3, I4, O1, O2] {
+	return func(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2) {
+		return f(i1, i2, i3, i4)
+	}
 }
 
 // F43 function with 4 argument(s) and 3 return(s)
@@ -314,6 +440,13 @@ type D43[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any, O3 any] interface {
 	Do(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2, o3 O3)
 }
 
+// GF43 generalize a function with argument type any to generic
+func GF43[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any, O3 any](f func(i1 any, i2 any, i3 any, i4 any) (o1 O1, o2 O2, o3 O3)) F43[I1, I2, I3, I4, O1, O2, O3] {
+	return func(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2, o3 O3) {
+		return f(i1, i2, i3, i4)
+	}
+}
+
 // F44 function with 4 argument(s) and 4 return(s)
 type F44[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any, O3 any, O4 any] func(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2, o3 O3, o4 O4)
 
@@ -324,4 +457,11 @@ func (f F44[I1, I2, I3, I4, O1, O2, O3, O4]) Do(i1 I1, i2 I2, i3 I3, i4 I4) (o1 
 // D44 interface with a single method with 4 argument(s) and 4 return(s)
 type D44[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any, O3 any, O4 any] interface {
 	Do(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2, o3 O3, o4 O4)
+}
+
+// GF44 generalize a function with argument type any to generic
+func GF44[I1 any, I2 any, I3 any, I4 any, O1 any, O2 any, O3 any, O4 any](f func(i1 any, i2 any, i3 any, i4 any) (o1 O1, o2 O2, o3 O3, o4 O4)) F44[I1, I2, I3, I4, O1, O2, O3, O4] {
+	return func(i1 I1, i2 I2, i3 I3, i4 I4) (o1 O1, o2 O2, o3 O3, o4 O4) {
+		return f(i1, i2, i3, i4)
+	}
 }

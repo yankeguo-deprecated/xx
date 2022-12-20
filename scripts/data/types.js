@@ -58,6 +58,12 @@ for (let i = 0; i < 5; i++) {
             return "o" + j + " O" + j
         }).join(", ")
 
+        if (i > 0) {
+            OBJ.w = true
+            OBJ.wI = _.map(ranges_i, function (i) {
+                return "i" + i + " any"
+            }).join(", ")
+        }
 
         DATA.push(OBJ);
     }
