@@ -17,6 +17,11 @@ func TestIgn(t *testing.T) {
 	e = Ign(&err, os.IsNotExist)
 	require.NoError(t, err)
 	require.Equal(t, err, e)
+
+	err = os.ErrExist
+	e = Ign(&err, os.IsNotExist)
+	require.Error(t, err)
+	require.Equal(t, os.ErrExist, e)
 }
 
 func TestGuard(t *testing.T) {
@@ -27,6 +32,16 @@ func TestGuard(t *testing.T) {
 	}()
 	require.Error(t, err)
 	require.Equal(t, "hello", err.Error())
+}
+
+func TestGuardNotError(t *testing.T) {
+	var err error
+	func() {
+		defer Guard(&err)
+		panic("hello")
+	}()
+	require.Error(t, err)
+	require.Equal(t, "panic: hello", err.Error())
 }
 
 func TestMustCtx(t *testing.T) {
