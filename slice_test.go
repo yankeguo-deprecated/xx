@@ -24,6 +24,15 @@ func TestSliceToSet(t *testing.T) {
 	}, SliceToSet([]string{"world", "hello"}))
 }
 
+func TestSliceToMap(t *testing.T) {
+	require.Equal(t, map[string]string{
+		"hello":   "world",
+		"goodbye": "world",
+	}, SliceToMap([]string{
+		"hello", "world", "goodbye", "world",
+	}))
+}
+
 func TestSliceFilter(t *testing.T) {
 	require.Equal(t, []string{"hell", "dull"}, SliceFilter([]string{"hell", "hello", "dull"}, Not(Eq("hello"))))
 }

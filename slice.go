@@ -31,6 +31,15 @@ func SliceToSet[T comparable](s []T) map[T]struct{} {
 	return o
 }
 
+// SliceToMap convert a slice to map with key-values
+func SliceToMap[T comparable](s []T) map[T]T {
+	m := make(map[T]T)
+	for i := 0; i < len(s); i += 2 {
+		m[s[i]] = s[i+1]
+	}
+	return m
+}
+
 // SliceFilter returns a new slice with element filtered
 func SliceFilter[T any](s []T, fn F11[T, bool]) []T {
 	var o []T
