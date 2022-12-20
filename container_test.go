@@ -43,7 +43,7 @@ func TestFilter(t *testing.T) {
 		return len(s)%2 == 0
 	}))
 
-	require.Equal(t, []string{"hell", "dull"}, Filter([]string{"hell", "hello", "dull"}, GeneralizeMatcher[string](Not(Eq("hello")))))
+	require.Equal(t, []string{"hell", "dull"}, Filter([]string{"hell", "hello", "dull"}, Not(Eq("hello"))))
 }
 
 func TestRepeat(t *testing.T) {

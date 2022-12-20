@@ -19,7 +19,7 @@ func TestIgn(t *testing.T) {
 	require.Equal(t, err, e)
 
 	err = os.ErrExist
-	e = Ign(&err, os.IsNotExist)
+	e = Ign(&err, Not(Eq(os.ErrExist)))
 	require.Error(t, err)
 	require.Equal(t, os.ErrExist, e)
 }

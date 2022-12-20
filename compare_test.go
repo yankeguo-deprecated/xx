@@ -7,8 +7,8 @@ import (
 )
 
 func TestCompare(t *testing.T) {
-	require.True(t, Compare(1, token.EQL).Do(1))
-	require.False(t, Compare(1, token.EQL).Do(2))
+	require.True(t, Compare[int](1, token.EQL).Do(1))
+	require.False(t, Compare[int](1, token.EQL).Do(2))
 }
 
 func TestAnd(t *testing.T) {

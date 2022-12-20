@@ -41,7 +41,7 @@ func Values[T comparable, U any](m map[T]U) []U {
 }
 
 // Filter returns a new slice with element filtered
-func Filter[T any](s []T, fn func(T) bool) []T {
+func Filter[T any](s []T, fn F11[T, bool]) []T {
 	var o []T
 	for _, v := range s {
 		if fn(v) {

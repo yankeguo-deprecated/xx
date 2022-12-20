@@ -7,24 +7,16 @@ import (
 	"strconv"
 )
 
-// GeneralizeMatcher generalize a matcher
-func GeneralizeMatcher[T any](m Matcher) F11[T, bool] {
-	return GF11[T, bool](m)
-}
-
-// Matcher matcher accept 1 argument and returns 1 bool
-type Matcher = F11[any, bool]
-
 // Compare create a Matcher compares a value with a token
-func Compare(v any, tok token.Token) Matcher {
-	return func(v1 any) bool {
+func Compare[T any](v any, tok token.Token) F11[T, bool] {
+	return func(v1 T) bool {
 		return compare(v1, v, tok)
 	}
 }
 
 // And returns a new matcher returns true if only all children returns true
-func And(m ...Matcher) Matcher {
-	return func(v1 any) bool {
+func And[T any](m ...F11[T, bool]) F11[T, bool] {
+	return func(v1 T) bool {
 		if len(m) == 0 {
 			return false
 		}
@@ -38,8 +30,8 @@ func And(m ...Matcher) Matcher {
 }
 
 // Or returns a new matcher returns true if any of children returns true
-func Or(m ...Matcher) Matcher {
-	return func(v1 any) bool {
+func Or[T any](m ...F11[T, bool]) F11[T, bool] {
+	return func(v1 T) bool {
 		for _, item := range m {
 			if item.Do(v1) {
 				return true
@@ -50,8 +42,8 @@ func Or(m ...Matcher) Matcher {
 }
 
 // Not returns a new matcher returns true if none of children returns true
-func Not(m ...Matcher) Matcher {
-	return func(v1 any) bool {
+func Not[T any](m ...F11[T, bool]) F11[T, bool] {
+	return func(v1 T) bool {
 		for _, item := range m {
 			if item.Do(v1) {
 				return false
@@ -61,34 +53,34 @@ func Not(m ...Matcher) Matcher {
 	}
 }
 
-// Eq returns a matcher that returns true if incoming value is same
-func Eq(v any) Matcher {
-	return Compare(v, token.EQL)
+// Eq returns a F11[T,bool] that returns true if incoming value is same
+func Eq[T any](v T) F11[T, bool] {
+	return Compare[T](v, token.EQL)
 }
 
 // Neq returns a func that returns true if incoming value is not same
-func Neq(v any) Matcher {
+func Neq[T any](v T) F11[T, bool] {
 	return Not(Eq(v))
 }
 
 // Gt returns a func that returns true if incoming values is greater
-func Gt(v any) Matcher {
-	return Compare(v, token.GTR)
+func Gt[T any](v T) F11[T, bool] {
+	return Compare[T](v, token.GTR)
 }
 
 // Lt returns a func that returns true if incoming values is less
-func Lt(v any) Matcher {
-	return Compare(v, token.LSS)
+func Lt[T any](v T) F11[T, bool] {
+	return Compare[T](v, token.LSS)
 }
 
 // Gte returns a func that returns true if incoming values is greater or equal
-func Gte(v any) Matcher {
-	return Compare(v, token.GEQ)
+func Gte[T any](v T) F11[T, bool] {
+	return Compare[T](v, token.GEQ)
 }
 
 // Lte returns a func that returns true if incoming values is less or equal
-func Lte(v any) Matcher {
-	return Compare(v, token.LEQ)
+func Lte[T any](v T) F11[T, bool] {
+	return Compare[T](v, token.LEQ)
 }
 
 // compare compare two values with an operation token
