@@ -50,3 +50,14 @@ func SliceFilter[T any](s []T, fn F11[T, bool]) []T {
 	}
 	return o
 }
+
+// SliceFlatten flatten a slice of slice
+func SliceFlatten[T any](s [][]T) []T {
+	var o []T
+	for _, items := range s {
+		for _, item := range items {
+			o = append(o, item)
+		}
+	}
+	return o
+}
